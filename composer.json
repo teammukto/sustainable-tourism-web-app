@@ -1,0 +1,8 @@
+{
+    "autoload":{
+        "psr-4":{
+            "Larubel\\": "sustainable_tourism/",
+            "App\\": "sustainable_tourism/app"
+        }
+    }
+}
