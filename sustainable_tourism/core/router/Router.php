@@ -1,7 +1,5 @@
 <?php
 
-namespace Larubel\Core\Router;
-
 /**
  * Router.php
  *
@@ -13,6 +11,10 @@ namespace Larubel\Core\Router;
  * @copyright 2016, Rubel
  * @license The MIT License
  */
+
+namespace Larubel\Core\Router;
+
+use Larubel\Libs\Services\Request;
 
 class Router{
 
@@ -96,6 +98,9 @@ class Router{
         // first set request method
         $this->requestedMethod = $this->getRequestMethod();
 
+        // set request
+        $this->request = new Request();
+
         // check if routes is set for given request method
         if(isset($this->routes[$this->requestedMethod])){
             $this->handle($this->routes[$this->requestedMethod]);
@@ -130,6 +135,8 @@ class Router{
     public function handle($routes){
 
         $uri = $this->getUri();
+        
+        Request::addRedirect($this->appBasePath. ltrim($uri, '/'));
 
         foreach ($routes as $pattern => $actions) {
 
@@ -148,8 +155,12 @@ class Router{
                     $controller = 'App\\Controllers\\' . $actions[0];
                     $action = $actions[1];
                     $action = [(new $controller), $action];
-                }
-                
+                }  
+
+                // if request method is post then pass Request object
+                if($this->requestedMethod == 'POST')
+                    return call_user_func_array($action, [$this->request]);
+
                 // multiple params are found call action with params
                 if( count($params) > 1){
                     return call_user_func_array($action, [$params]);

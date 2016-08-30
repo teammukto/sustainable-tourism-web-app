@@ -4,9 +4,18 @@ namespace App\Controllers;
 
 use Larubel\Database\Bond;
 
+use App\Model\Post;
+
+use Larubel\Libs\Services\Session;
+
+use Larubel\Core\Authentication\Auth;
+
 class PostController extends Controller{
 
     public function index(){
+        if(Auth::check())
+            echo "user is logged in";
+
         $posts = Bond::all('App\\Model\\Post');
         echo $this->view->render('posts', compact('posts'));
     }
