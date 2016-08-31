@@ -18,8 +18,8 @@ class UserController extends Controller{
 
     public function getLogin(){
         if(Session::get('user'))
-            Response::redirect('profile');
-        echo $this->view->render('login');
+            Response::redirect('user/profile');
+        echo $this->view->render('users/login');
     }
 
     public function postLogin(Request $request){
@@ -39,7 +39,7 @@ class UserController extends Controller{
             Response::redirect('user/profile');
         }else{
             Session::set('message', 'Login failed');
-            echo $this->view->render('login');
+            echo $this->view->render('users/login');
         }
         
     }
@@ -48,7 +48,7 @@ class UserController extends Controller{
         if(Session::get('user'))
             Response::redirect('user/profile');
 
-        echo $this->view->render('registration');
+        echo $this->view->render('users/registration');
     }
 
     public function show(){
@@ -57,7 +57,7 @@ class UserController extends Controller{
             Response::redirect('user/login');
 
         $user = Session::get('user');
-        echo $this->view->render('person', compact('user'));
+        echo $this->view->render('users/profile', compact('user'));
 
     }
 

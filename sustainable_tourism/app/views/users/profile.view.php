@@ -1,4 +1,4 @@
-<?php include 'layouts/header.php'; ?>
+<?php include(src("layouts/header.php"));?>
 
 <div class="container">
     <div class="row">
@@ -17,4 +17,4 @@
 </div>
 
 
-<?php include 'layouts/footer.php'; ?>
+<?php include(src("layouts/footer.php")); ?>

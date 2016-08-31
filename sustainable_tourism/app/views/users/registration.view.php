@@ -1,14 +1,10 @@
-<?php
-
-include '../layouts/header.php';
- ?>
-
+<?php include(src("layouts/header.php")); ?>
 <section class="registration-section">
 	<div class="container">
 		<div class="row">
 			<div class="grid-4 grid-offset-4">
 				<h2>Registration</h2>
-				<form action="" class="registration" id="registration" name="regform" onsubmit="return validateForm()">
+				<form action="signup" class="registration" id="registration" method="POST" name="regform" onsubmit="return validateForm()">
 					<div class="form-group">
 						<input type="text" name="name" id="name" class="input-control" placeholder="Your Name*" pattern="[a-zA-Z]+">
 						<span id="name-help"></span>
@@ -30,4 +26,4 @@ include '../layouts/header.php';
 	</div><!-- /container -->
 </section><!-- /login-section -->
 
-<?php include("layouts/footer.php"); ?>
+<?php include(src("layouts/footer.php")); ?>

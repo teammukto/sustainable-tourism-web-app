@@ -37,7 +37,7 @@
 	</section>
 
 	<footer>
-		<p>&copy; 2016 All right resereved</p>
+		<p>&copy; 2016 All right reserved</p>
 	</footer>
 
 	<script src="assets/js/jquery.js"></script>
