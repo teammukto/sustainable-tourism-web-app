@@ -4,6 +4,7 @@
  */
 define('BASEPATH', __DIR__);
 
+
 /*
  * define all database configuration here
  * using PDO (php data objects) extension

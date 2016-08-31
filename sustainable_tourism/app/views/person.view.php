@@ -1,24 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <link rel="stylesheet" href="assets/css/app.css">
-</head>
-<body>
-    <p> Person is laoded</p>
-    <h1>
-        <?php 
-            if($name == 'Rubel'){
-                echo 'Welecome admin ' . $name . '!';
-            }else{
-                echo 'Welecome ' . $name . '!';
-            }
-            
-            echo __DIR__;
-            echo '<br>';
-            echo getcwd();
-        ?>
-    </h1>
-</body>
-</html>
+<?php include 'layouts/header.php'; ?>
+
+<div class="container">
+    <div class="row">
+        <div class="grid-12">
+            <h1>Profile</h1>
+            <hr>
+
+            <?php 
+                if($user){
+                    echo "<h3>Name: ". $user->name(). "</h3>" ;
+                    echo "<h3>Email: ". $user->email() . "</h3>" ;
+                }
+            ?>
+        </div>
+    </div>
+</div>
+
+
+<?php include 'layouts/footer.php'; ?>

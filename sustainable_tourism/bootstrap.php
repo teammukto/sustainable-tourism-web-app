@@ -7,10 +7,10 @@ Larubel\Libs\Services\Session::start();
 
 $router = new Larubel\Core\Router\Router();
 
-require '../larubel/app/routes.php';
+require 'app/routes.php';
 
 $db = new Larubel\Database\Database(
     Larubel\Database\Connection::make(DB_CONFIGURATION['database'])
 );
 
-$errors = Larubel\Libs\Services\Session::get('errors');
+require 'libs/functions.php';
