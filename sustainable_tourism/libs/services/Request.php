@@ -10,7 +10,7 @@ class Request{
 
     public function __construct(){
         $this->postParams = $_POST ? $_POST : [];
-        $this->file = $_FILES ? $_FILES : [] ;
+        $this->files = $_FILES ? $_FILES : [] ;
     }
 
     public function get($name){

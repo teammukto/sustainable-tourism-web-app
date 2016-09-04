@@ -14,3 +14,7 @@ $db = new Larubel\Database\Database(
 );
 
 require 'libs/functions.php';
+
+global $errors;
+
+$errors = sessionErase('errors');

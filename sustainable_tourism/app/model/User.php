@@ -8,6 +8,7 @@ class User{
     protected $tablename = 'users';
     private $name;
     private $email;
+    private $type;
 
     public function id(){
         return $this->id;
@@ -20,4 +21,10 @@ class User{
     public function email(){
         return $this->email;
     }
+
+    public function isAdmin(){
+        if ($this->type == 2) return true;
+        return false;
+    }
+
 }

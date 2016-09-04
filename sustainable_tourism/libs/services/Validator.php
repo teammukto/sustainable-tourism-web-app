@@ -49,7 +49,6 @@ class Validator{
                 if(!preg_match($this->pattern, $data, $matches)){   
                     Session::set('errors', $fieldName . $this->messages[$values[0]] . ' ' . $values[1] . ' characters');             
                     Response::validationRedirect();
-                    //$this->redirect(Request::getUri());
                 }
 
                 continue;
@@ -59,7 +58,6 @@ class Validator{
                 if(!$this->validateEmail($data)){
                     Session::set('errors', $fieldName . $this->messages[$value]);
                     Response::validationRedirect();
-                    //$this->redirect(Request::getUri());
                 }
 
                 continue;
@@ -70,7 +68,6 @@ class Validator{
             if(!preg_match($this->pattern, $data, $matches)){
                 Session::set('errors', $fieldName . $this->messages[$value]); 
                 Response::validationRedirect();
-                //$this->redirect(Request::getUri());
             }
         }
         
@@ -80,6 +77,14 @@ class Validator{
 
     private function validateEmail($email) {
         return filter_var($email, FILTER_VALIDATE_EMAIL);
+    }
+
+    public function validateFile($file){
+        if($file['size'] > 5242880){
+            Response::validationRedirect();
+        }
+
+        return true;
     }
 
 }

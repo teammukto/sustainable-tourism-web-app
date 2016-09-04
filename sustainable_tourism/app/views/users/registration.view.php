@@ -4,9 +4,14 @@
 		<div class="row">
 			<div class="grid-4 grid-offset-4">
 				<h2>Registration</h2>
+				<?php 
+                    if(!empty($errors)){
+                        echo $errors;
+                    }
+                 ?>
 				<form action="signup" class="registration" id="registration" method="POST" name="regform" onsubmit="return validateForm()">
 					<div class="form-group">
-						<input type="text" name="name" id="name" class="input-control" placeholder="Your Name*" pattern="[a-zA-Z]+">
+						<input type="text" name="name" id="name" class="input-control" placeholder="Your Name*" pattern="[a-z A-Z]+">
 						<span id="name-help"></span>
 					</div>
 					<div class="form-group">

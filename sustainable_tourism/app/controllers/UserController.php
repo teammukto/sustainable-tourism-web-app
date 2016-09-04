@@ -53,10 +53,17 @@ class UserController extends Controller{
 
     public function show(){
 
-        if(!Session::get('user'))
+        if(!Auth::check()){
             Response::redirect('user/login');
+        }
 
-        $user = Session::get('user');
+        $user = Auth::user();
+
+        if($user->isAdmin()){
+            echo $this->view->render('users/admin', compact('user'));
+            return;
+        }
+
         echo $this->view->render('users/profile', compact('user'));
 
     }
@@ -73,7 +80,7 @@ class UserController extends Controller{
         $this->validator->validate('required|email', ['email' => $email]);
         $this->validator->validate('required', ['password' => $password]);
 
-        Bond::insert('\\App\\Model\\User', [
+        Bond::create('\\App\\Model\\User', [
             'name' => $name,
             'email' => $email,
             'password' => $password

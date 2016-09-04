@@ -37,4 +37,11 @@ class Auth{
 
         return false;
     }
+
+    public function user(){
+        if(Session::get('user'))
+            return Session::get('user');
+
+        return false;
+    }
 }

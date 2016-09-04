@@ -13,7 +13,7 @@
 			<div class="grid-4">
 				<object data="assets/img/jaflong.swf"></object>
 				<h4>
-					<a href="single.php">Jaflong</a>
+					<a href="<?php echo url('single'); ?>">Jaflong</a>
 				</h4>
 			</div>
 			<div class="grid-4">

@@ -165,8 +165,12 @@ class Router{
                 }  
 
                 // if request method is post then pass Request object
-                if($this->requestedMethod == 'POST')
+                if($this->requestedMethod == 'POST'){
+                    if(isset($params[0]))
+                        return call_user_func($action, $params[0], $this->request);
+
                     return call_user_func_array($action, [$this->request]);
+                }
 
                 // multiple params are found call action with params
                 if( count($params) > 1){

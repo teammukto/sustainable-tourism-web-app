@@ -23,7 +23,7 @@ class Bond implements ORMInterface{
         return (self::$db)->findWhere($model, $conditions);
     }
 
-    public static function insert($model, $data){
+    public static function create($model, $data){
         (self::$db)->create($model, $data);
     }
 

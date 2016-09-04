@@ -4,6 +4,12 @@
 
 define('VIEW_PATH',  BASEPATH. '\\app\\views\\');
 
+function sessionErase($name){
+    $val = Larubel\Libs\Services\Session::get($name);
+    Larubel\Libs\Services\Session::delete($name);
+    return $val;
+}
+
 function session($name){
     return Larubel\Libs\Services\Session::get($name);
 }
